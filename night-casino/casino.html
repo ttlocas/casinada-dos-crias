@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Night Casino</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎰</text></svg>">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="header-logo">
+            🎰 NIGHT <span>CASINO</span>
+        </div>
+
+        <div class="header-user">
+            <span id="headerUsername">Jogador</span>
+            <span class="header-coins">🪙 <strong id="headerCoins">0</strong></span>
+            <span class="header-gems">💎 <strong id="headerGems">0</strong></span>
+        </div>
+    </header>
+
+
+    <div class="layout">
+
+        <aside>
+            <a href="casino.html" class="active">🏠 Início</a>
+            <a href="#games">🎮 Jogos</a>
+            <a href="ranking.html">🏆 Ranking</a>
+            <button id="logoutButton" class="logout-button">🚪 Sair</button>
+        </aside>
+
+
+        <main class="content">
+
+            <section class="welcome-card">
+                <div>
+                    <p>👋 BEM-VINDO AO NIGHT CASINO</p>
+                    <h1>Olá, <span id="welcomeUsername">Jogador</span></h1>
+                    <div class="balances">
+                        <div class="balance">
+                            <small>O TEU SALDO</small>
+                            <strong>🪙 <span id="balanceCoins">0</span></strong>
+                        </div>
+                        <div class="balance balance-gems">
+                            <small>GEMAS (BÓNUS)</small>
+                            <strong>💎 <span id="balanceGems">0</span></strong>
+                        </div>
+                    </div>
+                </div>
+
+                <button id="dailyBonusButton" class="daily-bonus-button">
+                    🎁 Reclamar bónus diário
+                </button>
+            </section>
+
+            <section class="exchange-box">
+                <div>
+                    <p class="exchange-label">TROCAR GEMAS POR MOEDAS</p>
+                    <span class="exchange-rate">Cada 2000 💎 valem 2 🪙</span>
+                </div>
+                <button id="exchangeButton" class="exchange-button" disabled>
+                    🔁 Precisas de mais 2000 💎
+                </button>
+            </section>
+
+
+            <section id="games">
+
+                <div class="section-title">
+                    <p>NIGHT CASINO</p>
+                    <h2>Escolhe o teu jogo</h2>
+                </div>
+
+                <div class="currency-selector" id="currencySelector">
+                    <span class="bet-selector-label">Apostar com:</span>
+                    <button type="button" class="currency-chip active" data-currency="coins">🪙 Moedas</button>
+                    <button type="button" class="currency-chip" data-currency="gems">💎 Gemas</button>
+                </div>
+
+                <div class="bet-selector" id="betSelector">
+                    <span class="bet-selector-label">Aposta:</span>
+                    <button type="button" class="bet-chip" data-bet="2">2</button>
+                    <button type="button" class="bet-chip" data-bet="5">5</button>
+                    <button type="button" class="bet-chip active" data-bet="10">10</button>
+                    <button type="button" class="bet-chip" data-bet="20">20</button>
+                    <button type="button" class="bet-chip" data-bet="50">50</button>
+                </div>
+
+                <div class="games-grid">
+
+                    <!-- SLOTS -->
+                    <div class="game-card">
+                        <h3>🎰 SLOTS</h3>
+                        <p>Tenta conseguir três símbolos iguais.</p>
+
+                        <div class="slot-reels">
+                            <span class="reel" id="reelA">🍒</span>
+                            <span class="reel" id="reelB">🍋</span>
+                            <span class="reel" id="reelC">🍊</span>
+                        </div>
+
+                        <div class="bet" data-bet-label>APOSTA: 🪙 10</div>
+
+                        <button class="play-button" id="slotsButton">JOGAR</button>
+                    </div>
+
+
+                    <!-- DADOS -->
+                    <div class="game-card">
+                        <h3>🎲 DADOS</h3>
+                        <p>Escolhe um número e tenta acertar.</p>
+
+                        <div class="dice-face" id="diceFace">⚀</div>
+
+                        <div class="number-picker" id="dicePicker">
+                            <button type="button" class="number-chip" data-number="1">1</button>
+                            <button type="button" class="number-chip" data-number="2">2</button>
+                            <button type="button" class="number-chip" data-number="3">3</button>
+                            <button type="button" class="number-chip" data-number="4">4</button>
+                            <button type="button" class="number-chip" data-number="5">5</button>
+                            <button type="button" class="number-chip active" data-number="6">6</button>
+                        </div>
+
+                        <div class="bet" data-bet-label>APOSTA: 🪙 10</div>
+
+                        <button class="play-button" id="diceButton">JOGAR</button>
+                    </div>
+
+
+                    <!-- ROLETA -->
+                    <div class="game-card">
+                        <h3>🎡 ROLETA</h3>
+                        <p>Escolhe a cor e tenta acertar.</p>
+
+                        <div class="roulette-wrapper">
+                            <div class="roulette-pointer"></div>
+                            <div class="roulette-wheel" id="rouletteWheel"></div>
+                        </div>
+
+                        <div class="color-picker" id="roulettePicker">
+                            <button type="button" class="color-chip color-chip--red active" data-color="red">🔴 Vermelho</button>
+                            <button type="button" class="color-chip color-chip--black" data-color="black">⚫ Preto</button>
+                        </div>
+
+                        <div class="bet" data-bet-label>APOSTA: 🪙 10</div>
+
+                        <button class="play-button" id="rouletteButton">JOGAR</button>
+                    </div>
+
+                </div>
+
+
+                <div class="result-box">
+                    <div id="gameResult" role="status" aria-live="polite">
+                        <h2>🎰 NIGHT CASINO</h2>
+                        <p>Escolhe um jogo para começar.</p>
+                    </div>
+                </div>
+
+                <div class="history-section">
+                    <h3>ÚLTIMAS RONDAS</h3>
+                    <ul id="historyList">
+                        <li class="history-empty">Ainda não jogaste nenhuma ronda.</li>
+                    </ul>
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,1015 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --gold: #d4af37;
+    --gold-light: #f1d36a;
+    --black: #070707;
+    --dark: #0e0e0e;
+    --card: #121212;
+    --border: #292929;
+    --gray: #888888;
+    --win: #5fd68d;
+    --loss: #ff5555;
+    --gem: #5ec8f0;
+    --gem-light: #9fe0ff;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--black);
+    color: #ffffff;
+}
+
+button {
+    font-family: inherit;
+}
+
+*:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        transition-duration: 0.001ms !important;
+    }
+}
+
+
+/* ================================
+   LOGIN
+================================ */
+
+.login-body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at center, #2b230f 0%, #11100a 25%, #070707 65%);
+}
+
+.login-container {
+    width: 420px;
+    max-width: 90%;
+    text-align: center;
+}
+
+.casino-logo {
+    font-size: 75px;
+    margin-bottom: 10px;
+    filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.35));
+}
+
+.login-container h1 {
+    font-size: 32px;
+    letter-spacing: 5px;
+    margin-bottom: 8px;
+}
+
+.login-container h1 span {
+    color: var(--gold);
+}
+
+.subtitle {
+    color: var(--gold);
+    font-size: 12px;
+    letter-spacing: 4px;
+    margin-bottom: 30px;
+}
+
+.login-box {
+    background: rgba(15, 15, 15, 0.95);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.login-box h2 {
+    margin-bottom: 25px;
+    font-size: 24px;
+}
+
+.field-group {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+input {
+    width: 100%;
+    padding: 15px;
+    border-radius: 9px;
+    border: 1px solid #333;
+    background: #080808;
+    color: white;
+    outline: none;
+    font-size: 15px;
+}
+
+.field-group input {
+    margin-bottom: 0;
+    padding-right: 45px;
+}
+
+input:focus {
+    border-color: var(--gold);
+}
+
+.toggle-password {
+    position: absolute;
+    right: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: auto;
+    background: transparent;
+    border: none;
+    font-size: 16px;
+    padding: 6px 10px;
+    cursor: pointer;
+}
+
+.toggle-password:hover {
+    background: transparent;
+    transform: translateY(-50%);
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 9px;
+    background: var(--gold);
+    color: #080808;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+    font-size: 14px;
+}
+
+button:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.secondary-button {
+    margin-top: 10px;
+    background: #1a1a1a;
+    color: var(--gold);
+    border: 1px solid #333;
+}
+
+.secondary-button:hover {
+    background: #222;
+}
+
+#message {
+    min-height: 20px;
+    margin-top: 18px;
+    font-size: 14px;
+}
+
+.fictional {
+    color: #555;
+    margin-top: 20px;
+    font-size: 12px;
+}
+
+
+/* ================================
+   HEADER
+================================ */
+
+header {
+    height: 70px;
+    background: #0d0d0d;
+    border-bottom: 1px solid #242424;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+}
+
+.header-logo {
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.header-logo span {
+    color: var(--gold);
+}
+
+.header-user {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: #aaa;
+}
+
+.header-coins {
+    color: var(--gold);
+    font-weight: bold;
+}
+
+.header-gems {
+    color: var(--gem);
+    font-weight: bold;
+}
+
+.coin-pulse {
+    display: inline-block;
+    animation: coinPulse 0.4s ease;
+}
+
+@keyframes coinPulse {
+    0% { transform: scale(1); }
+    40% { transform: scale(1.25); color: var(--gold-light); }
+    100% { transform: scale(1); }
+}
+
+.gem-pulse {
+    display: inline-block;
+    animation: gemPulse 0.4s ease;
+}
+
+@keyframes gemPulse {
+    0% { transform: scale(1); }
+    40% { transform: scale(1.25); color: var(--gem-light); }
+    100% { transform: scale(1); }
+}
+
+
+/* ================================
+   LAYOUT
+================================ */
+
+.layout {
+    display: flex;
+    min-height: calc(100vh - 70px);
+}
+
+aside {
+    width: 230px;
+    background: #0d0d0d;
+    border-right: 1px solid #242424;
+    padding: 25px 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+aside a {
+    display: block;
+    color: #888;
+    text-decoration: none;
+    padding: 14px;
+    border-radius: 9px;
+    margin-bottom: 8px;
+    transition: 0.2s;
+}
+
+aside a:hover {
+    background: #19160e;
+    color: var(--gold);
+}
+
+aside a.active {
+    background: #19160e;
+    color: var(--gold);
+    border-left: 3px solid var(--gold);
+}
+
+.logout-button {
+    margin-top: auto;
+    background: #171717;
+    color: #999;
+    border: 1px solid #292929;
+}
+
+.logout-button:hover {
+    background: #251313;
+    color: #ff5555;
+}
+
+
+/* ================================
+   CONTENT
+================================ */
+
+.content {
+    flex: 1;
+    padding: 40px;
+    max-width: 1300px;
+}
+
+.welcome-card {
+    background: linear-gradient(120deg, #1d180d, #101010);
+    border: 1px solid #352d1a;
+    border-radius: 16px;
+    padding: 30px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.welcome-card p {
+    color: var(--gold);
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.welcome-card h1 {
+    font-size: 34px;
+    margin-top: 10px;
+}
+
+.welcome-card h1 span {
+    color: var(--gold);
+}
+
+.balance {
+    margin-top: 25px;
+}
+
+.balances {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.balance small {
+    display: block;
+    color: #777;
+    margin-bottom: 5px;
+}
+
+.balance strong {
+    color: var(--gold);
+    font-size: 28px;
+}
+
+.balance-gems strong {
+    color: var(--gem);
+}
+
+.daily-bonus-button {
+    width: auto;
+    white-space: nowrap;
+    background: #1a1a1a;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    padding: 14px 20px;
+}
+
+.daily-bonus-button:hover:not(:disabled) {
+    background: var(--gold);
+    color: #080808;
+}
+
+
+/* ================================
+   TROCA DE GEMAS
+================================ */
+
+.exchange-box {
+    background: linear-gradient(120deg, #0d1b26, #101010);
+    border: 1px solid #1c3b4d;
+    border-radius: 16px;
+    padding: 22px 30px;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.exchange-label {
+    color: var(--gem);
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.exchange-rate {
+    color: #777;
+    font-size: 13px;
+}
+
+.exchange-button {
+    width: auto;
+    white-space: nowrap;
+    background: #0e1f28;
+    color: var(--gem);
+    border: 1px solid var(--gem);
+    padding: 14px 20px;
+}
+
+.exchange-button:hover:not(:disabled) {
+    background: var(--gem);
+    color: #080808;
+}
+
+
+/* ================================
+   TITULOS
+================================ */
+
+.section-title {
+    margin-bottom: 20px;
+}
+
+.section-title p {
+    color: var(--gold);
+    font-size: 12px;
+    letter-spacing: 3px;
+}
+
+.section-title h2 {
+    font-size: 28px;
+    margin-top: 8px;
+}
+
+
+/* ================================
+   SELETOR DE APOSTA
+================================ */
+
+.bet-selector {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.bet-selector-label {
+    color: #777;
+    font-size: 13px;
+    margin-right: 5px;
+}
+
+.bet-chip {
+    width: auto;
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: #ccc;
+    padding: 10px 18px;
+    font-size: 13px;
+}
+
+.bet-chip:hover {
+    background: #1a1a1a;
+    transform: none;
+}
+
+.bet-chip.active {
+    background: var(--gold);
+    color: #080808;
+    border-color: var(--gold);
+}
+
+
+/* Seletor de moeda */
+
+.currency-selector {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.currency-chip {
+    width: auto;
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: #ccc;
+    padding: 10px 18px;
+    font-size: 13px;
+}
+
+.currency-chip:hover {
+    background: #1a1a1a;
+    transform: none;
+}
+
+.currency-chip[data-currency="coins"].active {
+    background: var(--gold);
+    color: #080808;
+    border-color: var(--gold);
+}
+
+.currency-chip[data-currency="gems"].active {
+    background: var(--gem);
+    color: #080808;
+    border-color: var(--gem);
+}
+
+
+/* Escolha do número (dados) */
+
+.number-picker {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.number-chip {
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    border-radius: 8px;
+    background: #0a0a0a;
+    border: 1px solid var(--border);
+    color: #ccc;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.number-chip:hover {
+    background: #1a1a1a;
+    transform: none;
+}
+
+.number-chip.active {
+    background: var(--gold);
+    color: #080808;
+    border-color: var(--gold);
+}
+
+
+/* Escolha da cor (roleta) */
+
+.color-picker {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.color-chip {
+    width: auto;
+    padding: 10px 16px;
+    border-radius: 8px;
+    background: #0a0a0a;
+    border: 1px solid var(--border);
+    color: #ccc;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.color-chip:hover {
+    background: #1a1a1a;
+    transform: none;
+}
+
+.color-chip--red.active {
+    background: var(--loss);
+    color: #fff;
+    border-color: var(--loss);
+}
+
+.color-chip--black.active {
+    background: #222;
+    color: #fff;
+    border-color: #555;
+}
+
+
+/* ================================
+   JOGOS
+================================ */
+
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.game-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 30px;
+    text-align: center;
+    transition: 0.2s;
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--gold);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.4);
+}
+
+.game-icon {
+    font-size: 60px;
+    margin-bottom: 15px;
+}
+
+.game-card h3 {
+    font-size: 23px;
+    margin-bottom: 10px;
+}
+
+.game-card p {
+    color: #777;
+    line-height: 1.5;
+    min-height: 45px;
+}
+
+.bet {
+    color: var(--gold);
+    font-size: 13px;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.play-button {
+    background: var(--gold);
+}
+
+/* Slots */
+
+.slot-reels {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    font-size: 40px;
+    margin-bottom: 15px;
+    min-height: 70px;
+}
+
+.reel {
+    width: 55px;
+    height: 65px;
+    background: #0a0a0a;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.reel.spinning {
+    animation: reelBlur 0.08s linear infinite;
+}
+
+@keyframes reelBlur {
+    0% { filter: blur(0); }
+    50% { filter: blur(2px); }
+    100% { filter: blur(0); }
+}
+
+/* Dados */
+
+.dice-face {
+    font-size: 64px;
+    margin-bottom: 15px;
+    display: inline-block;
+    min-height: 70px;
+}
+
+.dice-face.rolling {
+    animation: diceShake 0.15s linear infinite;
+}
+
+@keyframes diceShake {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(-15deg); }
+    75% { transform: rotate(15deg); }
+    100% { transform: rotate(0deg); }
+}
+
+/* Roleta */
+
+.roulette-wrapper {
+    position: relative;
+    width: 110px;
+    height: 110px;
+    margin: 0 auto 15px;
+}
+
+.roulette-pointer {
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 12px solid var(--gold);
+    z-index: 2;
+}
+
+.roulette-wheel {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 3px solid var(--gold);
+    background: conic-gradient(
+        var(--loss) 0deg 30deg, var(--black) 30deg 60deg,
+        var(--loss) 60deg 90deg, var(--black) 90deg 120deg,
+        var(--loss) 120deg 150deg, var(--black) 150deg 180deg,
+        var(--loss) 180deg 210deg, var(--black) 210deg 240deg,
+        var(--loss) 240deg 270deg, var(--black) 270deg 300deg,
+        var(--loss) 300deg 330deg, var(--black) 330deg 360deg
+    );
+}
+
+
+/* ================================
+   RESULTADO
+================================ */
+
+.result-box {
+    margin-top: 30px;
+    background: #101010;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 35px;
+    text-align: center;
+}
+
+.result-box h2 {
+    color: var(--gold);
+    margin-bottom: 10px;
+}
+
+.result-box p {
+    color: #888;
+    font-size: 16px;
+}
+
+.result-title.result-win {
+    color: var(--win);
+}
+
+.result-title.result-loss {
+    color: var(--loss);
+}
+
+
+/* ================================
+   HISTÓRICO
+================================ */
+
+.history-section {
+    margin-top: 25px;
+    background: #101010;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 20px 25px;
+}
+
+.history-section h3 {
+    font-size: 14px;
+    color: #777;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    font-weight: normal;
+}
+
+#historyList {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.history-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #ccc;
+    padding: 8px 0;
+    border-bottom: 1px solid #1c1c1c;
+}
+
+.history-item:last-child {
+    border-bottom: none;
+}
+
+.history-win {
+    color: var(--win);
+    font-weight: bold;
+}
+
+.history-loss {
+    color: var(--loss);
+    font-weight: bold;
+}
+
+.history-empty {
+    color: #555;
+    font-size: 13px;
+    list-style: none;
+}
+
+
+/* ================================
+   RANKING
+================================ */
+
+.ranking-header {
+    margin-bottom: 30px;
+}
+
+.ranking-header p {
+    color: var(--gold);
+    letter-spacing: 3px;
+    font-size: 12px;
+}
+
+.ranking-header h1 {
+    font-size: 36px;
+    margin: 10px 0;
+}
+
+.ranking-header span {
+    color: #777;
+}
+
+.ranking-box {
+    background: #111;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.ranking-top {
+    display: grid;
+    grid-template-columns: 120px 1fr 180px;
+    padding: 18px 25px;
+    background: #181818;
+    color: #777;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.ranking-player {
+    display: grid;
+    grid-template-columns: 120px 1fr 180px;
+    align-items: center;
+    padding: 20px 25px;
+    border-top: 1px solid #242424;
+}
+
+.ranking-player--you {
+    background: rgba(212, 175, 55, 0.06);
+}
+
+.you-tag {
+    font-size: 10px;
+    color: #080808;
+    background: var(--gold);
+    padding: 2px 6px;
+    border-radius: 4px;
+    letter-spacing: 1px;
+    margin-left: 6px;
+}
+
+.ranking-position {
+    color: var(--gold);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.ranking-name {
+    font-weight: bold;
+}
+
+.ranking-coins {
+    color: var(--gold);
+    font-weight: bold;
+    text-align: right;
+}
+
+.empty-ranking {
+    padding: 40px;
+    text-align: center;
+    color: #777;
+}
+
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 850px) {
+    header {
+        padding: 0 15px;
+    }
+
+    .header-user {
+        gap: 8px;
+        font-size: 13px;
+    }
+
+    .layout {
+        flex-direction: column;
+    }
+
+    aside {
+        width: 100%;
+        flex-direction: row;
+        gap: 5px;
+        padding: 10px;
+        border-right: none;
+        border-bottom: 1px solid #242424;
+    }
+
+    aside a {
+        flex: 1;
+        text-align: center;
+        font-size: 12px;
+        padding: 12px 5px;
+    }
+
+    .logout-button {
+        width: auto;
+        margin-top: 0;
+        padding: 10px;
+    }
+
+    .content {
+        padding: 20px;
+    }
+
+    .games-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .welcome-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .daily-bonus-button {
+        width: 100%;
+    }
+
+    .exchange-box {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .exchange-button {
+        width: 100%;
+    }
+
+    .balances {
+        gap: 25px;
+    }
+
+    .ranking-top,
+    .ranking-player {
+        grid-template-columns: 70px 1fr 110px;
+        padding: 15px;
+    }
+
+    .ranking-coins {
+        text-align: right;
+    }
+}
+
+@media (max-width: 500px) {
+    .login-container {
+        width: 92%;
+    }
+
+    .login-container h1 {
+        font-size: 25px;
+    }
+
+    .casino-logo {
+        font-size: 60px;
+    }
+
+    .welcome-card h1 {
+        font-size: 27px;
+    }
+
+    .content {
+        padding: 15px;
+    }
+
+    .header-logo {
+        font-size: 16px;
+    }
+}

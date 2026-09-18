@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Night Casino - Login</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎰</text></svg>">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="login-body">
+
+    <div class="login-container">
+
+        <div class="casino-logo">🎰</div>
+
+        <h1>NIGHT <span>CASINO</span></h1>
+
+        <p class="subtitle">CASINO VIRTUAL</p>
+
+        <div class="login-box">
+
+            <h2>Entrar</h2>
+
+            <div class="field-group">
+                <input
+                    type="text"
+                    id="username"
+                    placeholder="Username"
+                    autocomplete="username"
+                    maxlength="16"
+                >
+            </div>
+
+            <div class="field-group">
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Password"
+                    autocomplete="current-password"
+                >
+                <button type="button" id="togglePassword" class="toggle-password" aria-label="Mostrar password">
+                    👁️
+                </button>
+            </div>
+
+            <button id="loginButton">
+                ENTRAR
+            </button>
+
+            <button id="registerButton" class="secondary-button">
+                CRIAR CONTA
+            </button>
+
+            <p id="message" role="status" aria-live="polite"></p>
+
+        </div>
+
+        <p class="fictional">
+            🪙 Moedas fictícias • Apenas para diversão
+        </p>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
